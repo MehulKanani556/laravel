@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\View;
 class UserController extends Controller
 {
     //simple call controller
@@ -23,8 +23,16 @@ class UserController extends Controller
     }
 
 
-    //call inside folder view file
+    //call inside folder view file 
     function adminLogin(){
         return view('admin.login');
+    }
+//check view exist or not
+    function adLog(){
+        if(View::exists('admin.Login')){
+            return view('admin.Login');
+        }else{
+            echo "No view found";
+        }
     }
 }
