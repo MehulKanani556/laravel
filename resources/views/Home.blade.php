@@ -26,3 +26,8 @@
         
     @endfor
 </div>
+
+
+
+
+@include('common.header')
