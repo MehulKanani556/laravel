@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UserForm extends Controller
 {
-    //
+    // Simp;e text field
     // function addUser(Request $req){
     //     echo "User Name is $req->username";
     //     echo "<br>";
@@ -17,17 +17,32 @@ class UserForm extends Controller
     //     echo "User City is $req->city";
     //     // return $req;
     // }
-    function addUser(Request $req){
-        echo $req->gender;
-        echo "<br />";
+
+    // Select , checkbox , radio , range
+    // function addUser(Request $req){
+    //     echo $req->gender;
+    //     echo "<br />";
         
-        echo $req->city;
-        echo "<br />";
-        echo $req->age;
-        echo "<br />";
-        print_r ($req->skill);
+    //     echo $req->city;
+    //     echo "<br />";
+    //     echo $req->age;
+    //     echo "<br />";
+    //     print_r ($req->skill);
       
 
-        // return $req;
-    }
+    //     // return $req;
+    // }
+
+
+    // Validation
+     function addUser(Request $req){
+        $req -> validate([
+            'username' => 'required|min:3|max:50',
+            'email' => 'required | email',
+            'city' => 'required | max:20',
+            'skill' => 'required',
+        ]);
+
+        return $req;
+     }
 }
