@@ -31,3 +31,7 @@
 
 
 @include('common.header')
+
+
+
+{{-- <x-message/> --}}
