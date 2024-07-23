@@ -11,25 +11,25 @@
     <form action="addUser" method="post">
         @csrf
         <div class="input-wrapper">
-            <input type="text" placeholder="Enter User Name" name="username">
+            <input type="text" placeholder="Enter User Name" name="username" value="{{old('username')}}" class="{{$errors->first('username')?'input-errr':''}}">
             <span style="color: red">@error('username'){{$message}}@enderror</span>
         </div>
         <div class="input-wrapper">
-            <input type="text" placeholder="Enter User email" name="email">
+            <input type="text" placeholder="Enter User email" name="email" value="{{old('email')}}" class="{{$errors->first('email')?'input-errr':''}}">
             <span style="color: red">@error('email'){{$message}}@enderror</span>
         </div>
         <div class="input-wrapper">
-            <input type="text" placeholder="Enter City" name="city">
+            <input type="text" placeholder="Enter City" name="city" value="{{old('city')}}" class="{{$errors->first('city')?'input-errr':''}}">
             <span style="color: red">@error('city'){{$message}}@enderror</span>
 
         </div>
         <div>
             <h5>User Skill</h5>
-            <input type="checkbox" name="skill" id="php" value="PHP">
+            <input type="checkbox" name="skill[]" id="php" value="PHP" {{ (is_array(old('skill')) && in_array('PHP', old('skill'))) ? 'checked' : '' }}>
             <label for="php">PHP</label>
-            <input type="checkbox" name="skill" id="noe" value="Node">
+            <input type="checkbox" name="skill[]" id="node" value="Node" {{ (is_array(old('skill')) && in_array('Node', old('skill'))) ? 'checked' : '' }}>
             <label for="node">Node</label>
-            <input type="checkbox" name="skill" id="java" value="Java">
+            <input type="checkbox" name="skill[]" id="java" value="Java" {{ (is_array(old('skill')) && in_array('Java', old('skill'))) ? 'checked' : '' }}>
             <label for="java">Java</label>
             
         </div>
@@ -98,5 +98,9 @@
     button {
         background-color: white;
         cursor: pointer;
+    }
+    .input-error {
+        border: 1px solid red;
+        color: red;
     }
 </style>

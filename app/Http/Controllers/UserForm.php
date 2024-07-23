@@ -41,6 +41,12 @@ class UserForm extends Controller
             'email' => 'required | email',
             'city' => 'required | max:20',
             'skill' => 'required',
+        ],[
+            'username.required' => 'Username can not be empty',
+            'username.min'=>'Username min characters should be 3',
+            'username.max'=>'Username max characters limit is 15',
+            'email.email'=>'This email is not valid'
+
         ]);
 
         return $req;
