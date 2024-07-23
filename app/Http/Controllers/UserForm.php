@@ -34,18 +34,19 @@ class UserForm extends Controller
     // }
 
 
-    // Validation
+    // Validation && custom validation
      function addUser(Request $req){
         $req -> validate([
             'username' => 'required|min:3|max:50',
             'email' => 'required | email',
-            'city' => 'required | max:20',
+            'city' => 'required | max:20 |uppercase',
             'skill' => 'required',
         ],[
             'username.required' => 'Username can not be empty',
             'username.min'=>'Username min characters should be 3',
             'username.max'=>'Username max characters limit is 15',
-            'email.email'=>'This email is not valid'
+            'email.email'=>'This email is not valid',
+            'city.uppercase'=>'City should be in uppercase'
 
         ]);
 
