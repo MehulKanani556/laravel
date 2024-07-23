@@ -34,7 +34,7 @@ class UserForm extends Controller
     // }
 
 
-    // Validation && custom validation
+    // Validation && custom validation && custom rule
      function addUser(Request $req){
         $req -> validate([
             'username' => 'required|min:3|max:50',

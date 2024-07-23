@@ -22,3 +22,6 @@ Route::get('a',[UserController::class,'about']);
 // form
 Route::view('user-form','user-form');
 Route::post('addUser',[UserForm::class,'addUser']);
+
+Route::view('url1','url1');
+Route::view('url2','url2');
