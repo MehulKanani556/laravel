@@ -25,3 +25,16 @@ Route::post('addUser',[UserForm::class,'addUser']);
 
 Route::view('url1','url1');
 Route::view('url2','url2');
+
+
+
+// Route::view('middleware1','groupmiddleware1') ->middleware('check1');
+
+Route::middleware('check1')->group(function(){
+    Route::view('middleware1','groupmiddleware1');
+    Route::view('middleware2','groupmiddleware2');
+    Route::view('middleware3','groupmiddleware2');
+    Route::view('middleware4','groupmiddleware2');
+    Route::view('middleware5','groupmiddleware2');
+});
+
